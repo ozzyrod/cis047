@@ -11,7 +11,8 @@ $from    = "From: $name <$email>";
 date_default_timezone_set( 'America/Los_Angeles' );
 
 $today         = date( "F jS, Y" );
-$store_message = "$today -- $from \n Subject: $subject \n Message:\n $message \n --- \n";
+$time          = date( "h:i:sa" );
+$store_message = "$today at $time -- $from \n Subject: $subject \n Message:\n $message \n --- \n";
 
 // Store the post.
 $store_post = fopen( 'blog.txt', 'a' );
@@ -30,12 +31,15 @@ fclose( $store_post );
 				<h1 class="center">Your post was submitted.</h1>
 				<p>The following is the information in your post:<br>
 					<strong>Date:</strong> <?php echo $today; ?><br>
+					<strong>Time:</strong> <?php echo $time; ?><br>
 					<strong>Name:</strong> <?php echo $name; ?><br>
 					<strong>Email:</strong> <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a><br>
 					<strong>Subject:</strong> <?php echo $subject; ?><br>
 					<strong>Message:</strong><br>
 					<?php echo $message; ?>
 				</p>
+				
+				<p><a href="blog.txt">Link to the blog</a>.</p>
 			</div>
 		</main>
 	</div>
