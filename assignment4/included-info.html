@@ -1,0 +1,13 @@
+<div class="included">
+	<!--#set var="myName" value="Ozzy" -->
+	<p>Today is <!--#config timefmt="%A, %B %e, %Y" --><!--#echo var="DATE_LOCAL" --></p>
+	<p>This file was last modified on <!--#flastmod file="index.html" --> by <!--#echo var="myName" --></p>
+	<!--#config timefmt="%A" -->
+	<p>
+		<!--#if expr="(${DATE_LOCAL} = Tuesday) || (${DATE_LOCAL} = Wednesday) || (${DATE_LOCAL} = Thursday)" -->
+		He has class today.
+		<!--#else -->
+		He's slacking today.
+		<!--#endif -->
+	</p>
+</div>
